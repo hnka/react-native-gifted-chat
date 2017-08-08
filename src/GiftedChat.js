@@ -17,6 +17,7 @@ import Avatar from './Avatar';
 import Bubble from './Bubble';
 import MessageImage from './MessageImage';
 import MessageText from './MessageText';
+import MessageAudio from './MessageAudio';
 import Composer from './Composer';
 import Day from './Day';
 import InputToolbar from './InputToolbar';
@@ -505,6 +506,7 @@ GiftedChat.defaultProps = {
   messageIdGenerator: () => uuid.v4(),
   user: {},
   onSend: () => {},
+  onPressPlay: () => {},
   locale: null,
   timeFormat: 'LT',
   dateFormat: 'll',
@@ -557,6 +559,7 @@ GiftedChat.propTypes = {
   messageIdGenerator: PropTypes.func,
   user: PropTypes.object,
   onSend: PropTypes.func,
+  onPressPlay: React.PropTypes.func,
   locale: PropTypes.string,
   timeFormat: PropTypes.string,
   dateFormat: PropTypes.string,
@@ -603,6 +606,7 @@ export {
   Bubble,
   MessageImage,
   MessageText,
+  MessageAudio,
   Composer,
   Day,
   InputToolbar,

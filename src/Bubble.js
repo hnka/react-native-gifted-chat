@@ -57,6 +57,17 @@ export default class Bubble extends React.Component {
     return null;
   }
 
+  renderMessageAudio() {
+    if (this.props.currentMessage.audio) {
+      const {containerStyle, wrapperStyle, ...messageAudioProps} = this.props;
+      if (this.props.renderMessageAudio) {
+        return this.props.renderMessageAudio(messageAudioProps);
+      }
+      return <MessageAudio {...messageAudioProps}/>;
+    }
+    return null;
+  }
+
   renderTicks() {
     const {currentMessage} = this.props;
     if (this.props.renderTicks) {
@@ -129,6 +140,7 @@ export default class Bubble extends React.Component {
           >
             <View>
               {this.renderCustomView()}
+              {this.renderMessageAudio()}
               {this.renderMessageImage()}
               {this.renderMessageText()}
               <View style={[styles.bottom, this.props.bottomContainerStyle[this.props.position]]}>
@@ -206,6 +218,7 @@ Bubble.defaultProps = {
   onLongPress: null,
   renderMessageImage: null,
   renderMessageText: null,
+  renderMessageAudio: null,
   renderCustomView: null,
   renderTime: null,
   position: 'left',
@@ -232,6 +245,7 @@ Bubble.propTypes = {
   onLongPress: PropTypes.func,
   renderMessageImage: PropTypes.func,
   renderMessageText: PropTypes.func,
+  renderMessageAudio: PropTypes.func,
   renderCustomView: PropTypes.func,
   renderTime: PropTypes.func,
   position: PropTypes.oneOf(['left', 'right']),
