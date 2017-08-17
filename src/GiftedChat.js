@@ -550,6 +550,7 @@ GiftedChat.defaultProps = {
   }),
   onInputTextChanged: null,
   maxInputLength: null,
+  audioProgress: null
 };
 
 GiftedChat.propTypes = {
@@ -597,6 +598,7 @@ GiftedChat.propTypes = {
   keyboardShouldPersistTaps: PropTypes.oneOf(['always', 'never', 'handled']),
   onInputTextChanged: PropTypes.func,
   maxInputLength: PropTypes.number,
+  audioProgress: PropTypes.number
 };
 
 export {
